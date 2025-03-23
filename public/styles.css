@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 85vh;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Реєстраційна форма */
+.registration-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.form-group button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 10px;
+}
+
+/* Основний інтерфейс чату */
+.chat-interface {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.current-user {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #34495e;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.rooms-section, .users-section {
+    margin-bottom: 20px;
+}
+
+.rooms-section h3, .users-section h3 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rooms-section ul, .users-section ul {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.rooms-section ul li, .users-section ul li {
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 2px;
+    word-break: break-word;
+}
+
+.rooms-section ul li:hover, .users-section ul li:hover {
+    background-color: #34495e;
+}
+
+.rooms-section ul li.active {
+    background-color: #3498db;
+}
+
+.create-room {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group {
+  display: flex;
+}
+
+.create-room input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #34495e;
+  border-radius: 4px 0 0 4px;
+  background-color: #34495e;
+  color: white;
+  outline: none;
+}
+
+.create-room button {
+  padding: 8px 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+#create-room-error {
+  color: #f44336;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+.create-room input::placeholder {
+  color: #aaa;
+}
+
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-header {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-header h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 70%;
+    word-break: break-word;
+}
+
+.message .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.message .username {
+    font-weight: bold;
+}
+
+.message .time {
+    color: #888;
+}
+
+.message .text {
+    line-height: 1.4;
+}
+
+.message.my-message {
+    background-color: #e3f2fd;
+    margin-left: auto;
+}
+
+.message.other-message {
+    background-color: #f5f5f5;
+}
+
+.message.system-message {
+    background-color: #fff3e0;
+    text-align: center;
+    max-width: 100%;
+    font-style: italic;
+    color: #795548;
+}
+
+.message.private-message {
+    background-color: #e8f5e9;
+    border-left: 3px solid #4CAF50;
+}
+
+.message-form {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.message-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.message-form button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.message-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Форма приватних повідомлень */
+.private-message-form {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.private-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.private-header h3 {
+    font-size: 14px;
+    color: #333;
+}
+
+.private-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+
+.private-input {
+    display: flex;
+}
+
+.private-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.private-input button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+/* Утиліти */
+.hidden {
+    display: none !important;
+}
